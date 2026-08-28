@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f2f2f2;
+    padding: 30px;
+}
+
+h1 {
+    color: #333;
+}
+
+.area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    margin-top: 50px;
+}
+
+#gato, #caixa {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    border-radius: 10px;
+}
+
+#gato {
+    background: white;
+    border: 2px solid #555;
+    cursor: grab;
+}
+
+#caixa {
+    background: #ddd;
+    border: 2px dashed #555;
+}
+
+#mensagem {
+    color: green;
+    margin-top: 40px;
+}
