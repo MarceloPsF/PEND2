@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grand Fake Casino</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-fx">
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+  <div class="glow glow-c"></div>
+</div>
+
+<header class="topbar">
+  <div class="logo">
+    <span class="logo-suit">♠</span>
+    <span class="logo-text">GRAND <em>FAKE</em> CASINO</span>
+  </div>
+
+  <div class="wallet">
+    <div class="balance-box">
+      <span class="balance-label">Saldo virtual</span>
+      <span class="balance-value" id="balanceValue">0</span>
+    </div>
+    <button class="btn btn-deposit" id="openDeposit">
+      <span>Depositar</span>
+    </button>
+    <button class="btn btn-withdraw" id="openWithdraw">
+      <span>Sacar</span>
+    </button>
+  </div>
+</header>
+
+<p class="disclaimer">💡 Fichas 100% fictícias — sem valor real, sem dinheiro de verdade, só diversão.</p>
+
+<nav class="game-nav" id="gameNav">
+  <button class="nav-btn active" data-game="slots"><span class="nav-ico">🎰</span>Caça-Níquel</button>
+  <button class="nav-btn" data-game="roulette"><span class="nav-ico">🎡</span>Roleta</button>
+  <button class="nav-btn" data-game="blackjack"><span class="nav-ico">🃏</span>Blackjack</button>
+  <button class="nav-btn" data-game="dice"><span class="nav-ico">🎲</span>Dados</button>
+  <button class="nav-btn" data-game="coinflip"><span class="nav-ico">🪙</span>Cara/Coroa</button>
+  <button class="nav-btn" data-game="crash"><span class="nav-ico">🚀</span>Crash</button>
+</nav>
+
+<main class="game-area">
+
+  <!-- ================= SLOTS ================= -->
+  <section class="game-panel active" id="panel-slots">
+    <h2 class="panel-title">Caça-Níquel <span>Fortune Reels</span></h2>
+
+    <div class="slot-machine">
+      <div class="slot-frame">
+        <div class="slot-reels" id="slotReels">
+          <div class="reel" id="reel-0">
+            <div class="symbol-slot"></div>
+            <div class="symbol-slot"></div>
+            <div class="symbol-slot"></div>
+          </div>
+          <div class="reel" id="reel-1">
+            <div class="symbol-slot"></div>
+            <div class="symbol-slot"></div>
+            <div class="symbol-slot"></div>
+          </div>
+          <div class="reel" id="reel-2">
+            <div class="symbol-slot"></div>
+            <div class="symbol-slot"></div>
+            <div class="symbol-slot"></div>
+          </div>
+        </div>
+        <div class="payline"></div>
+      </div>
+
+      <p class="game-message" id="slotMessage">Ajuste sua aposta e gire os rolos!</p>
+
+      <div class="controls-row">
+        <div class="bet-control">
+          <label>Aposta</label>
+          <div class="bet-input-group">
+            <button class="bet-adj" data-target="slotBet" data-action="half">½</button>
+            <input type="number" id="slotBet" value="10" min="1" step="1">
+            <button class="bet-adj" data-target="slotBet" data-action="double">2x</button>
+          </div>
+        </div>
+        <button class="primary-btn spin-btn" id="slotSpinBtn">GIRAR</button>
+      </div>
+
+      <div class="paytable">
+        <div class="paytable-item"><span>💎💎💎</span><b>x25</b></div>
+        <div class="paytable-item"><span>7️⃣7️⃣7️⃣</span><b>x15</b></div>
+        <div class="paytable-item"><span>⭐⭐⭐</span><b>x10</b></div>
+        <div class="paytable-item"><span>🔔🔔🔔</span><b>x6</b></div>
+        <div class="paytable-item"><span>🍇🍇🍇</span><b>x4</b></div>
+        <div class="paytable-item"><span>🍋🍋🍋</span><b>x3</b></div>
+        <div class="paytable-item"><span>🍒🍒🍒</span><b>x2</b></div>
+        <div class="paytable-item"><span>2 iguais</span><b>x1.2</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ROULETTE ================= -->
+  <section class="game-panel" id="panel-roulette">
+    <h2 class="panel-title">Roleta <span>Europeia</span></h2>
+
+    <div class="roulette-wrap">
+      <div class="wheel-stage">
+        <div class="wheel-pointer"></div>
+        <div class="wheel" id="rouletteWheel"></div>
+        <div class="wheel-hub" id="rouletteResultNumber">–</div>
+      </div>
+
+      <div class="roulette-history" id="rouletteHistory"></div>
+
+      <p class="game-message" id="rouletteMessage">Escolha sua aposta e gire a roleta!</p>
+
+      <div class="controls-row">
+        <div class="bet-control">
+          <label>Aposta</label>
+          <div class="bet-input-group">
+            <button class="bet-adj" data-target="rouletteBet" data-action="half">½</button>
+            <input type="number" id="rouletteBet" value="10" min="1" step="1">
+            <button class="bet-adj" data-target="rouletteBet" data-action="double">2x</button>
+          </div>
+        </div>
+        <button class="primary-btn spin-btn" id="rouletteSpinBtn">GIRAR</button>
+      </div>
+
+      <div class="roulette-bets" id="rouletteBets">
+        <button class="chip chip-red" data-bet="red">Vermelho <em>x2</em></button>
+        <button class="chip chip-black" data-bet="black">Preto <em>x2</em></button>
+        <button class="chip chip-green" data-bet="green">Verde (0) <em>x14</em></button>
+        <button class="chip" data-bet="even">Par <em>x2</em></button>
+        <button class="chip" data-bet="odd">Ímpar <em>x2</em></button>
+        <button class="chip" data-bet="low">1–18 <em>x2</em></button>
+        <button class="chip" data-bet="high">19–36 <em>x2</em></button>
+      </div>
+
+      <div class="roulette-number-bet">
+        <input type="number" id="rouletteNumberInput" min="0" max="36" placeholder="0-36">
+        <button class="chip chip-number" data-bet="number">Número exato <em>x35</em></button>
+      </div>
+
+      <p class="selected-bet" id="rouletteSelectedBet">Nenhuma aposta selecionada</p>
+    </div>
+  </section>
+
+  <!-- ================= BLACKJACK ================= -->
+  <section class="game-panel" id="panel-blackjack">
+    <h2 class="panel-title">Blackjack <span>21</span></h2>
+
+    <div class="blackjack-table">
+      <div class="hand-zone">
+        <div class="hand-label">Dealer <span id="dealerScore">0</span></div>
+        <div class="cards-row" id="dealerCards"></div>
+      </div>
+
+      <div class="hand-zone">
+        <div class="hand-label">Você <span id="playerScore">0</span></div>
+        <div class="cards-row" id="playerCards"></div>
+      </div>
+
+      <p class="game-message" id="blackjackMessage">Faça sua aposta e clique em Distribuir.</p>
+
+      <div class="controls-row">
+        <div class="bet-control">
+          <label>Aposta</label>
+          <div class="bet-input-group">
+            <button class="bet-adj" data-target="blackjackBet" data-action="half">½</button>
+            <input type="number" id="blackjackBet" value="10" min="1" step="1">
+            <button class="bet-adj" data-target="blackjackBet" data-action="double">2x</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-row bj-actions">
+        <button class="primary-btn" id="dealBtn">DISTRIBUIR</button>
+        <button class="secondary-btn" id="hitBtn" disabled>PEDIR</button>
+        <button class="secondary-btn" id="standBtn" disabled>PARAR</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DICE ================= -->
+  <section class="game-panel" id="panel-dice">
+    <h2 class="panel-title">Dados <span>Roll Under/Over</span></h2>
+
+    <div class="dice-wrap">
+      <div class="dice-display">
+        <div class="dice-cube" id="diceCube">50</div>
+      </div>
+
+      <p class="game-message" id="diceMessage">Escolha um alvo e role o dado!</p>
+
+      <div class="dice-stats">
+        <div><span>Chance de vitória</span><b id="diceWinChance">49.50%</b></div>
+        <div><span>Multiplicador</span><b id="diceMultiplier">2.0000x</b></div>
+      </div>
+
+      <div class="dice-slider-wrap">
+        <input type="range" id="diceTarget" min="2" max="98" value="50">
+        <div class="dice-slider-value" id="diceTargetValue">50</div>
+      </div>
+
+      <div class="controls-row">
+        <button class="mode-btn active" id="diceModeUnder">Rolar ABAIXO de</button>
+        <button class="mode-btn" id="diceModeOver">Rolar ACIMA de</button>
+      </div>
+
+      <div class="controls-row">
+        <div class="bet-control">
+          <label>Aposta</label>
+          <div class="bet-input-group">
+            <button class="bet-adj" data-target="diceBet" data-action="half">½</button>
+            <input type="number" id="diceBet" value="10" min="1" step="1">
+            <button class="bet-adj" data-target="diceBet" data-action="double">2x</button>
+          </div>
+        </div>
+        <button class="primary-btn spin-btn" id="diceRollBtn">ROLAR</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COINFLIP ================= -->
+  <section class="game-panel" id="panel-coinflip">
+    <h2 class="panel-title">Cara ou Coroa <span>Double or Nothing</span></h2>
+
+    <div class="coin-wrap">
+      <div class="coin-stage">
+        <div class="coin" id="coin">
+          <div class="coin-face coin-front">👑</div>
+          <div class="coin-face coin-back">⚡</div>
+        </div>
+      </div>
+
+      <p class="game-message" id="coinflipMessage">Escolha um lado e aposte!</p>
+
+      <div class="controls-row">
+        <button class="mode-btn active" id="coinCara" data-side="cara">👑 Cara</button>
+        <button class="mode-btn" id="coinCoroa" data-side="coroa">⚡ Coroa</button>
+      </div>
+
+      <div class="controls-row">
+        <div class="bet-control">
+          <label>Aposta</label>
+          <div class="bet-input-group">
+            <button class="bet-adj" data-target="coinflipBet" data-action="half">½</button>
+            <input type="number" id="coinflipBet" value="10" min="1" step="1">
+            <button class="bet-adj" data-target="coinflipBet" data-action="double">2x</button>
+          </div>
+        </div>
+        <button class="primary-btn spin-btn" id="coinflipBtn">APOSTAR</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CRASH ================= -->
+  <section class="game-panel" id="panel-crash">
+    <h2 class="panel-title">Crash <span>Cash Out a Tempo</span></h2>
+
+    <div class="crash-wrap">
+      <div class="crash-stage">
+        <svg class="crash-svg" id="crashSvg" viewBox="0 0 600 300" preserveAspectRatio="none">
+          <polyline id="crashLine" points="0,300" />
+        </svg>
+        <div class="crash-multiplier" id="crashMultiplier">1.00x</div>
+        <div class="crash-overlay" id="crashOverlay">Faça sua aposta para começar</div>
+      </div>
+
+      <div class="crash-history" id="crashHistory"></div>
+
+      <p class="game-message" id="crashMessage">Aposte e clique em Iniciar. Retire antes de estourar!</p>
+
+      <div class="controls-row">
+        <div class="bet-control">
+          <label>Aposta</label>
+          <div class="bet-input-group">
+            <button class="bet-adj" data-target="crashBet" data-action="half">½</button>
+            <input type="number" id="crashBet" value="10" min="1" step="1">
+            <button class="bet-adj" data-target="crashBet" data-action="double">2x</button>
+          </div>
+        </div>
+        <button class="primary-btn spin-btn" id="crashStartBtn">INICIAR</button>
+        <button class="secondary-btn" id="crashCashoutBtn" disabled>RETIRAR</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= MODALS ================= -->
+<div class="modal-overlay" id="depositModal">
+  <div class="modal-box">
+    <button class="modal-close" data-close="depositModal">✕</button>
+    <h3>Depositar fichas fictícias</h3>
+    <p class="modal-sub">Adicione saldo virtual sem custo algum, é tudo fake.</p>
+    <input type="number" id="depositAmount" min="1" placeholder="Valor">
+    <div class="quick-amounts">
+      <button data-amount="50">+50</button>
+      <button data-amount="100">+100</button>
+      <button data-amount="500">+500</button>
+      <button data-amount="1000">+1000</button>
+    </div>
+    <button class="primary-btn" id="confirmDeposit">Confirmar depósito</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="withdrawModal">
+  <div class="modal-box">
+    <button class="modal-close" data-close="withdrawModal">✕</button>
+    <h3>Sacar fichas fictícias</h3>
+    <p class="modal-sub">Retire parte do seu saldo virtual acumulado.</p>
+    <input type="number" id="withdrawAmount" min="1" placeholder="Valor">
+    <div class="quick-amounts">
+      <button data-amount="50">50</button>
+      <button data-amount="100">100</button>
+      <button data-amount="500">500</button>
+      <button data-amount="max">Tudo</button>
+    </div>
+    <button class="primary-btn" id="confirmWithdraw">Confirmar saque</button>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+<div class="confetti-container" id="confettiContainer"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
