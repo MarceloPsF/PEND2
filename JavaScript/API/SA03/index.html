@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pesquisa de Receitas</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Pesquisa de Receitas</h1>
+        <p>Encontre receitas utilizando uma API.</p>
+    </header>
+
+    <main>
+
+        <div class="pesquisa">
+            <input type="text" id="receita" placeholder="Digite o nome de uma receita">
+
+            <button onclick="buscarReceita()">
+                Buscar
+            </button>
+        </div>
+
+        <p id="mensagem"></p>
+
+        <div id="resultado"></div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
